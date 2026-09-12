@@ -9,8 +9,7 @@ import java.io.Serializable;
 
 @Named
 @ViewScoped
-
-public class CourseRegistrationBean  implements Serializable {
+public class CourseRegistrationBean implements Serializable {
 
     private String studentName;
     private String courseName;
@@ -19,13 +18,13 @@ public class CourseRegistrationBean  implements Serializable {
     public void submit() {
 
         String deliveryMode =
-                onlineDelivery ? "Online" : "Offline";
+                onlineDelivery ? "Online" : "In-Person";
 
         FacesMessage message = new FacesMessage(
                 FacesMessage.SEVERITY_INFO,
                 "Registration Submitted",
-                studentName + " registered for " + courseName + " (" + deliveryMode + ")"
-        );
+                studentName + " registered for "
+                        + courseName + " (" + deliveryMode + ")");
 
         FacesContext.getCurrentInstance()
                 .addMessage(null, message);
