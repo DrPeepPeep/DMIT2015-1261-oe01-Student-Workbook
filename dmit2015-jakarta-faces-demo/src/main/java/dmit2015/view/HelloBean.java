@@ -8,8 +8,8 @@ import jakarta.validation.constraints.NotBlank;
 
 @Named
 @RequestScoped
-
 public class HelloBean {
+
     @NotBlank(message = "User Input value is required")
     private String userInput;
 
@@ -23,13 +23,14 @@ public class HelloBean {
 
     public String getMessage() {
 //        return "Hello, " + userInput;
-        return String.format("Hello, %s!", userInput);
+        return String.format("Hello, %s", userInput);
     }
 
     public String onSubmit() {
-        String message = String.format("Action Hello %s!", userInput);
+        String message = String.format("Action Hello, %s", userInput);
         var facesMessage = new FacesMessage(message);
         FacesContext.getCurrentInstance().addMessage(null, facesMessage);
         return null;
     }
+
 }
