@@ -17,7 +17,7 @@
 
             <p:outputLabel for="fullName" value="Full Name" />
             <p:inputText id="fullName"
-                         value="#{studentFormBean.fullName}"
+                         value="#{studentFormBean.studentInfo.fullName}"
                          required="true"
                          requiredMessage="Full name is required" />
             <br />
@@ -25,7 +25,7 @@
 
             <p:outputLabel for="program" value="Propgram" />
             <p:selectOneMenu id="program"
-                             value="#{studentFormBean.program}"
+                             value="#{studentFormBean.studentInfo.program}"
                              required="true"
                              requiredMessage="Program is required">
                 <f:selectItem itemLabel="Select Program"
@@ -39,7 +39,7 @@
             <br />
             <br />
             <p:selectBooleanCheckbox id="fullTime"
-                                     value="#{studentFormBean.fullTime}" />
+                                     value="#{studentFormBean.studentInfo.fullTime}" />
             <p:outputLabel for="fullTime"
                            value="Full Time Student"
                            />
@@ -56,6 +56,40 @@
                 />
 
         </p:panel>
+
+        <p:dataTable id="dataTable"
+                     value="#{studentinfoSession.students}"
+                     var="currentStudent" >
+            <p:column headerText="Full Name" >
+                <h:outputText value="#{currentStudent.fullName}" />
+            </p:column>
+
+            <p:column headerText="Program">
+                <h:outputText value="#{currentStudent.program}" />
+            </p:column>
+
+            <p:column headerText="Full Time">
+                <p:selectBooleanCheckbox value="#{currentStudent.fullTime}"
+                                         disabled="true" />
+            </p:column>
+
+            <p:column headerText="Action">
+                <p:commandButton value="Remove"
+                                 action="#{studentFormBean.removeStudent(currentStudent)}"
+                                 process="@this"
+                                 update="dataTable" >
+<!--                    using p:confirm to make a popup-->
+                    <p:confirm header="Confirmation"
+                               message="Are you sure you want to remove #{currentStudent.fullName}?"
+                               icon="pi pi-exclamation-triangle" />
+                </p:commandButton>
+            </p:column>
+        </p:dataTable>
+<!--        using p:confirmDialog to create a yes and no button-->
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+        </p:confirmDialog>
     </h:form>
 </h:body>
 </html>
