@@ -57,19 +57,3 @@ Content-Type: application/json
 # DELETE removes the object stored at jsonDataPath/idValue.
 
 DELETE {{firebaseBaseUri}}/{{jsonDataPath}}/{{idValue}}.json
-
-
-###
-# curl 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]'
-#-H 'Content-Type: application/json'
-#--data-binary '{"email":"[user@example.com]","password":"[PASSWORD]","returnSecureToken":true}'
-POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBx_D7m003_tj7l-xs-Cs1hRc5aD7kbzlU
-Content-Type: application/json
-
-{
-  "email": "user01@dmit2015.ca",
-  "password": "password",
-  "returnSecureToken": true
-}
-
-###
