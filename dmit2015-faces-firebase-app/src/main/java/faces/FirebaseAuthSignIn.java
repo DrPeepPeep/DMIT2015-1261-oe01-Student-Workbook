@@ -13,6 +13,7 @@ import lombok.Setter;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.omnifaces.cdi.Param;
 import org.omnifaces.util.Messages;
+import view.FirebaseAuthSignInSession;
 
 import java.io.Serializable;
 

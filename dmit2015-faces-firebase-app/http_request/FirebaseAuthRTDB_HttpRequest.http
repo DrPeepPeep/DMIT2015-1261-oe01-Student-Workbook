@@ -35,7 +35,7 @@ Content-Type: application/json
 @firebaseBaseUri = https://dmit2015-1261-oe01-drpeeppeep-default-rtdb.firebaseio.com/
 @domainModelName = Student
 @jsonDataPath = multi_tenant_data/{{domainModelName}}/{{localId}}
-@idValue = new123
+@idValue = new12345
 
 ### Create or replace JSON data using an explicit id
 # PUT writes data to the exact path.
@@ -47,8 +47,8 @@ Content-Type: application/json
 
 {
   "id": "{{idValue}}",
-  "propertyName1": "property1Value",
-  "propertyName2": "property2Value"
+  "firstName": "Tyler",
+  "lastName": "Hatch"
 }
 
 ### Read one JSON object by explicit id
@@ -72,8 +72,8 @@ Content-Type: application/json
 
 {
   "id": "{{idValue}}",
-  "propertyName1": "updatedProperty1Value",
-  "propertyName2": "updatedProperty2Value"
+  "firstName": "John",
+  "lastName": "Doe"
 }
 
 ### Update part of a JSON object
@@ -84,7 +84,7 @@ PATCH {{firebaseBaseUri}}/{{jsonDataPath}}/{{idValue}}.json?auth={{idToken}}
 Content-Type: application/json
 
 {
-  "propertyName1": "newValue"
+  "firstName": "Jane"
 }
 
 ### Delete one JSON object by explicit id

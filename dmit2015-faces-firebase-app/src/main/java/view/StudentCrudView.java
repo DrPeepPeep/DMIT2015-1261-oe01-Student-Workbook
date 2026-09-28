@@ -1,5 +1,6 @@
 package view;
 
+import jdk.jfr.Name;
 import model.Student;
 import service.StudentService;
 import jakarta.annotation.PostConstruct;
@@ -26,7 +27,8 @@ import java.util.List;
 public class StudentCrudView implements Serializable {
 
     @Inject
-    @Named("firebaseHttpClientStudentService")
+//    @Named("firebaseHttpClientStudentService")
+    @Named("firebaseMultiTenantHttpClientStudentService")
     private StudentService studentService;
 
     /**

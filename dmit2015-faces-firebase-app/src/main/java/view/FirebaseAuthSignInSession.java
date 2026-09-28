@@ -1,4 +1,4 @@
-package faces;
+package view;
 
 import model.FirebaseAuthSignInResponsePayload;
 import service.FirebaseAuthService;
@@ -15,6 +15,7 @@ import org.omnifaces.util.Utils;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.rmi.server.UID;
 import java.time.LocalDateTime;
 
 /**
