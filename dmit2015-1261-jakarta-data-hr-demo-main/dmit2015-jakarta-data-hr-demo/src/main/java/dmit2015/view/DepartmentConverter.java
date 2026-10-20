@@ -21,7 +21,7 @@ public class DepartmentConverter implements Converter<Department> {
     @Override
     public Department getAsObject(FacesContext context, UIComponent component, String value) {
         Short deptId = Short.valueOf(value);
-        return hrRepository.departmentByDepartmentID(deptId);
+        return hrRepository.departmentByDepartmentId(deptId);
     }
 
     @Override
